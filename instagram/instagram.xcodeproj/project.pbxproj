@@ -9,21 +9,49 @@
 /* Begin PBXBuildFile section */
 		117FE23B261C591900B2044D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE23A261C591900B2044D /* AppDelegate.swift */; };
 		117FE23D261C591900B2044D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE23C261C591900B2044D /* SceneDelegate.swift */; };
-		117FE23F261C591900B2044D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE23E261C591900B2044D /* ViewController.swift */; };
+		117FE23F261C591900B2044D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE23E261C591900B2044D /* HomeVC.swift */; };
 		117FE242261C591900B2044D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117FE240261C591900B2044D /* Main.storyboard */; };
 		117FE244261C591A00B2044D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117FE243261C591A00B2044D /* Assets.xcassets */; };
 		117FE247261C591A00B2044D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117FE245261C591A00B2044D /* LaunchScreen.storyboard */; };
+		117FE25B261C5B5E00B2044D /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE25A261C5B5E00B2044D /* ExploreVC.swift */; };
+		117FE25E261C5B7400B2044D /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE25D261C5B7400B2044D /* CameraVC.swift */; };
+		117FE261261C5B8600B2044D /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE260261C5B8600B2044D /* NotificationVC.swift */; };
+		117FE264261C5B9E00B2044D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE263261C5B9E00B2044D /* ProfileVC.swift */; };
+		117FE26B261C5C4300B2044D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE26A261C5C4300B2044D /* LoginVC.swift */; };
+		117FE26F261C5C5A00B2044D /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE26E261C5C5A00B2044D /* RegistrationVC.swift */; };
+		117FE272261C5C9500B2044D /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE271261C5C9500B2044D /* PostVC.swift */; };
+		117FE275261C5CC000B2044D /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE274261C5CC000B2044D /* EditProfileVC.swift */; };
+		117FE278261C5CE100B2044D /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE277261C5CE100B2044D /* SettingsVC.swift */; };
+		117FE27B261C5D0400B2044D /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE27A261C5D0400B2044D /* ListVC.swift */; };
+		117FE27E261C5D2000B2044D /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE27D261C5D2000B2044D /* SearchVC.swift */; };
+		117FE281261C5D3D00B2044D /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE280261C5D3D00B2044D /* SearchResultVC.swift */; };
+		117FE284261C5D7200B2044D /* PostEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE283261C5D7200B2044D /* PostEditorVC.swift */; };
+		117FE287261C5D9B00B2044D /* PublishPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE286261C5D9B00B2044D /* PublishPostVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		117FE237261C591800B2044D /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117FE23A261C591900B2044D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		117FE23C261C591900B2044D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		117FE23E261C591900B2044D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		117FE23E261C591900B2044D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		117FE241261C591900B2044D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		117FE243261C591A00B2044D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		117FE246261C591A00B2044D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		117FE248261C591A00B2044D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		117FE25A261C5B5E00B2044D /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
+		117FE25D261C5B7400B2044D /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		117FE260261C5B8600B2044D /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
+		117FE263261C5B9E00B2044D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		117FE26A261C5C4300B2044D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		117FE26E261C5C5A00B2044D /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		117FE271261C5C9500B2044D /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostVC.swift; path = "instagram/Controllers/Core Tabs/PostVC.swift"; sourceTree = SOURCE_ROOT; };
+		117FE274261C5CC000B2044D /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		117FE277261C5CE100B2044D /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		117FE27A261C5D0400B2044D /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		117FE27D261C5D2000B2044D /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		117FE280261C5D3D00B2044D /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
+		117FE283261C5D7200B2044D /* PostEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorVC.swift; sourceTree = "<group>"; };
+		117FE286261C5D9B00B2044D /* PublishPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +84,93 @@
 		117FE239261C591800B2044D /* instagram */ = {
 			isa = PBXGroup;
 			children = (
-				117FE23A261C591900B2044D /* AppDelegate.swift */,
-				117FE23C261C591900B2044D /* SceneDelegate.swift */,
-				117FE23E261C591900B2044D /* ViewController.swift */,
-				117FE240261C591900B2044D /* Main.storyboard */,
-				117FE243261C591A00B2044D /* Assets.xcassets */,
-				117FE245261C591A00B2044D /* LaunchScreen.storyboard */,
+				117FE254261C5A4A00B2044D /* Resources */,
+				117FE253261C5A4200B2044D /* Models */,
+				117FE252261C5A3D00B2044D /* Views */,
+				117FE251261C5A3200B2044D /* Controllers */,
 				117FE248261C591A00B2044D /* Info.plist */,
 			);
 			path = instagram;
+			sourceTree = "<group>";
+		};
+		117FE251261C5A3200B2044D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				117FE268261C5C1B00B2044D /* Other */,
+				117FE266261C5BD000B2044D /* Core Tabs */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		117FE252261C5A3D00B2044D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				117FE243261C591A00B2044D /* Assets.xcassets */,
+				117FE257261C5AC400B2044D /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		117FE253261C5A4200B2044D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		117FE254261C5A4A00B2044D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				117FE23A261C591900B2044D /* AppDelegate.swift */,
+				117FE23C261C591900B2044D /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		117FE257261C5AC400B2044D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				117FE240261C591900B2044D /* Main.storyboard */,
+				117FE245261C591A00B2044D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		117FE266261C5BD000B2044D /* Core Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				117FE23E261C591900B2044D /* HomeVC.swift */,
+				117FE25A261C5B5E00B2044D /* ExploreVC.swift */,
+				117FE25D261C5B7400B2044D /* CameraVC.swift */,
+				117FE260261C5B8600B2044D /* NotificationVC.swift */,
+				117FE263261C5B9E00B2044D /* ProfileVC.swift */,
+			);
+			path = "Core Tabs";
+			sourceTree = "<group>";
+		};
+		117FE268261C5C1B00B2044D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				117FE269261C5C2700B2044D /* OnBoarding */,
+				117FE271261C5C9500B2044D /* PostVC.swift */,
+				117FE274261C5CC000B2044D /* EditProfileVC.swift */,
+				117FE277261C5CE100B2044D /* SettingsVC.swift */,
+				117FE27A261C5D0400B2044D /* ListVC.swift */,
+				117FE27D261C5D2000B2044D /* SearchVC.swift */,
+				117FE280261C5D3D00B2044D /* SearchResultVC.swift */,
+				117FE283261C5D7200B2044D /* PostEditorVC.swift */,
+				117FE286261C5D9B00B2044D /* PublishPostVC.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		117FE269261C5C2700B2044D /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				117FE26A261C5C4300B2044D /* LoginVC.swift */,
+				117FE26E261C5C5A00B2044D /* RegistrationVC.swift */,
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +243,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				117FE23F261C591900B2044D /* ViewController.swift in Sources */,
+				117FE23F261C591900B2044D /* HomeVC.swift in Sources */,
+				117FE27B261C5D0400B2044D /* ListVC.swift in Sources */,
+				117FE261261C5B8600B2044D /* NotificationVC.swift in Sources */,
+				117FE284261C5D7200B2044D /* PostEditorVC.swift in Sources */,
+				117FE287261C5D9B00B2044D /* PublishPostVC.swift in Sources */,
+				117FE26B261C5C4300B2044D /* LoginVC.swift in Sources */,
+				117FE264261C5B9E00B2044D /* ProfileVC.swift in Sources */,
+				117FE272261C5C9500B2044D /* PostVC.swift in Sources */,
+				117FE27E261C5D2000B2044D /* SearchVC.swift in Sources */,
+				117FE278261C5CE100B2044D /* SettingsVC.swift in Sources */,
+				117FE26F261C5C5A00B2044D /* RegistrationVC.swift in Sources */,
+				117FE281261C5D3D00B2044D /* SearchResultVC.swift in Sources */,
 				117FE23B261C591900B2044D /* AppDelegate.swift in Sources */,
+				117FE25E261C5B7400B2044D /* CameraVC.swift in Sources */,
+				117FE25B261C5B5E00B2044D /* ExploreVC.swift in Sources */,
 				117FE23D261C591900B2044D /* SceneDelegate.swift in Sources */,
+				117FE275261C5CC000B2044D /* EditProfileVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +409,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7ZBHT89JPN;
 				INFOPLIST_FILE = instagram/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,7 +429,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7ZBHT89JPN;
 				INFOPLIST_FILE = instagram/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
