@@ -131,7 +131,7 @@
         <scene sceneID="ehw-ec-EYi">
             <objects>
                 <navigationController id="gC7-Md-D0S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="s5a-X5-tXy"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.circle" catalog="system" id="s5a-X5-tXy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ynx-Zq-bml">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -148,7 +148,7 @@
         <scene sceneID="eCN-Sn-MLn">
             <objects>
                 <navigationController id="V1n-mN-67E" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="bell" catalog="system" id="gEI-0j-PkR"/>
+                    <tabBarItem key="tabBarItem" title="" image="heart" catalog="system" id="gEI-0j-PkR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ToS-Y8-MyC">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -182,7 +182,7 @@
         <scene sceneID="Sy6-cW-ctx">
             <objects>
                 <navigationController id="GDZ-2G-YVI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="globe" catalog="system" id="kiO-ka-ayL"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="kiO-ka-ayL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lka-ym-OE4">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -197,10 +197,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bell" catalog="system" width="128" height="124"/>
-        <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
