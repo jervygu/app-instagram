@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 struct SettingCellModel {
     let title: String
@@ -43,12 +44,75 @@ final class SettingsVC: UIViewController {
     }
     
     private func configureModels() {
-        let section = [
+        let sectionA = [
+            SettingCellModel(title: "Edit Profile", handler: { [weak self] in
+                self?.didTapEditProfile()
+            }),
+            
+            SettingCellModel(title: "Follow and Invite Friends", handler: { [weak self] in
+                self?.didTapFollowInviteFriends()
+            }),
+            
+            SettingCellModel(title: "Save Original Posts", handler: { [weak self] in
+                self?.didTapSaveOriginalPosts()
+            })
+        ]
+        
+        let sectionB = [
+            SettingCellModel(title: "Privacy", handler: { [weak self] in
+                self?.openUrl(type: .privacy)
+            }),
+            SettingCellModel(title: "Help", handler: { [weak self] in
+                self?.openUrl(type: .help)
+            }),
+            SettingCellModel(title: "Terms of Service", handler: { [weak self] in
+                self?.openUrl(type: .terms)
+            })
+        ]
+        
+        let sectionC = [
             SettingCellModel(title: "Log Out", handler: { [weak self] in
                 self?.didTapLogout()
             })
         ]
-        data.append(section)
+        
+        data.append(sectionA)
+        data.append(sectionB)
+        data.append(sectionC)
+    }
+    
+    enum SettingURLType {
+        case terms, privacy, help
+    }
+    
+    private func openUrl(type: SettingURLType) {
+        let urlString: String
+        
+        switch type {
+        case .help: urlString = "https://help.instagram.com/"
+        case .privacy: urlString = "https://help.instagram.com/519522125107875"
+        case .terms: urlString = "https://help.instagram.com/581066165581870"
+        }
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    private func didTapEditProfile() {
+        let vc = EditProfileVC()
+        vc.navigationController?.navigationBar.topItem?.title = "Edit Profile"
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true, completion: nil)
+    }
+    
+    private func didTapFollowInviteFriends() {
+        // show share sheets to invite friends
+    }
+    
+    private func didTapSaveOriginalPosts() {
+        
     }
     
     private func didTapLogout() {
@@ -99,6 +163,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row].title
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
