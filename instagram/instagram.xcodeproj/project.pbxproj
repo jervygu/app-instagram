@@ -199,9 +199,9 @@
 		11A4C36E261C6C030067B0B1 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				117FE277261C5CE100B2044D /* SettingsVC.swift */,
 				1108D679261C6C950091C056 /* PostVC.swift */,
 				117FE274261C5CC000B2044D /* EditProfileVC.swift */,
-				117FE277261C5CE100B2044D /* SettingsVC.swift */,
 				117FE27A261C5D0400B2044D /* ListVC.swift */,
 				117FE27D261C5D2000B2044D /* SearchVC.swift */,
 				117FE280261C5D3D00B2044D /* SearchResultVC.swift */,

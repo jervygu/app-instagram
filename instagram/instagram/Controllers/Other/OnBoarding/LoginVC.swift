@@ -119,6 +119,7 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
         
         loginBtn.addTarget(self, action: #selector(didTapLoginBtn), for: .touchUpInside)
         createAccountBtn.addTarget(self, action: #selector(didTapCreateAccountBtn), for: .touchUpInside)
@@ -129,7 +130,6 @@ class LoginVC: UIViewController {
         passwordTF.delegate = self
         
         addSubviews()
-        view.backgroundColor = .systemBackground
         
         
         
