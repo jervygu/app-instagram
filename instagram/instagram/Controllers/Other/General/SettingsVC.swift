@@ -104,6 +104,7 @@ final class SettingsVC: UIViewController {
         let vc = EditProfileVC()
         vc.navigationController?.navigationBar.topItem?.title = "Edit Profile"
         let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true, completion: nil)
     }
     
@@ -131,7 +132,7 @@ final class SettingsVC: UIViewController {
                         // present login
                         let loginVC = LoginVC()
                         loginVC.modalPresentationStyle = .fullScreen
-                        self.present(loginVC, animated: true) {
+                        self.present(loginVC, animated: false) {
                             self.navigationController?.popToRootViewController(animated: false)
                             self.tabBarController?.selectedIndex = 0
                         }
