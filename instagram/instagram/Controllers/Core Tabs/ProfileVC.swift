@@ -15,7 +15,7 @@ final class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.topItem?.title = "Profile"
+        navigationController?.navigationBar.topItem?.title = ""
         view.backgroundColor = .systemBackground
         
         configureNavigationBar()
@@ -23,10 +23,14 @@ final class ProfileVC: UIViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: view.width / 3.3, height: view.width / 3.3)
+        layout.sectionInset = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
+        let size = (view.width - 4) / 3
+        layout.itemSize = CGSize(width: size, height: size)
+        layout.minimumLineSpacing = 2
+        layout.minimumInteritemSpacing = 1
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView?.backgroundColor = .systemGray
+        collectionView?.backgroundColor = .secondarySystemBackground
+        collectionView?.showsVerticalScrollIndicator = false
         
         // cell
         collectionView?.register(PhotoCVCell.self, forCellWithReuseIdentifier: PhotoCVCell.identifier)
@@ -54,7 +58,8 @@ final class ProfileVC: UIViewController {
     
     private func configureNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "gear"),
+//            image: UIImage(systemName: "gear"),
+            image: UIImage(systemName: "line.horizontal.3"),
             style: .done,
             target: self,
             action: #selector(didTapSettingsBtn))
@@ -70,13 +75,24 @@ final class ProfileVC: UIViewController {
 
 extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return 0
+        }
         return 30
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCVCell.identifier, for: indexPath) as! PhotoCVCell
-        cell.backgroundColor = .systemBlue
+//        cell.backgroundColor = .systemBlue
+        
+        cell.configure(wtihImgName: "test")
         
         return cell
     }
@@ -87,7 +103,33 @@ extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        guard kind == UICollectionView.elementKindSectionHeader else {
+            // footer
+            return UICollectionReusableView()
+        }
+        
+        if indexPath.section == 1 {
+            // tabs header
+            let tabControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileTabsCollectionReusableView.identifier, for: indexPath) as! ProfileTabsCollectionReusableView
+            
+            return tabControlHeader
+        }
+        
+        let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier, for: indexPath) as! ProfileInfoHeaderCollectionReusableView
+        
+        return profileHeader
+    }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: collectionView.width, height: collectionView.height / 3)
+        }
+        
+        // size of section tabs
+        return CGSize(width: collectionView.width, height: 65)
+        
+    }
     
 }
