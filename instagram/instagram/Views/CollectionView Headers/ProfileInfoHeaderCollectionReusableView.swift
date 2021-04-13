@@ -29,9 +29,57 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         return imageView
     }()
     
+    func configureButtonTitleLabel(withNumber number: Int, withTitle title: String) -> UIButton {
+        
+        let button = UIButton()
+        button.setTitle("Posts", for: .normal)
+        
+        // applying the line break mode
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        let buttonText: NSString = title as NSString
+        
+        //getting the range to separate the button title strings
+        let newlineRange: NSRange = buttonText.range(of: "\n")
+        
+        //getting both substrings
+        var substring1 = ""
+        var substring2 = ""
+        
+        if(newlineRange.location != NSNotFound) {
+            substring1 = buttonText.substring(to: newlineRange.location)
+            substring2 = buttonText.substring(from: newlineRange.location)
+        }
+        
+        //assigning diffrent fonts to both substrings
+        let font1: UIFont = .systemFont(ofSize: 15, weight: .bold)
+        let attributes1 = [NSMutableAttributedString.Key.font: font1]
+        let attrString1 = NSMutableAttributedString(string: substring1, attributes: attributes1)
+        
+        let font2: UIFont = .systemFont(ofSize: 12, weight: .medium)!
+        let attributes2 = [NSMutableAttributedString.Key.font: font2]
+        let attrString2 = NSMutableAttributedString(string: substring2, attributes: attributes2)
+        
+        //appending both attributed strings
+        attrString1.append(attrString2)
+        
+        //assigning the resultant attributed strings to the button
+        button.setAttributedTitle(attrString1, for: [])
+        
+        
+        
+        //        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
+        button.titleLabel?.textAlignment = .center
+        button.setTitleColor(.label, for: .normal)
+        //        button.backgroundColor = .secondarySystemBackground
+        button.backgroundColor = .systemBackground
+        return button
+    }
+    
     private let postsBtn: UIButton = {
         let button = UIButton()
         button.setTitle("Posts", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
+        button.titleLabel?.textAlignment = .center
         button.setTitleColor(.label, for: .normal)
         //        button.backgroundColor = .secondarySystemBackground
         button.backgroundColor = .systemBackground
@@ -41,6 +89,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let followersBtn: UIButton = {
         let button = UIButton()
         button.setTitle("Followers", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
         button.setTitleColor(.label, for: .normal)
         //        button.backgroundColor = .secondarySystemBackground
         button.backgroundColor = .systemBackground
@@ -50,6 +99,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let followingBtn: UIButton = {
         let button = UIButton()
         button.setTitle("Following", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
         button.setTitleColor(.label, for: .normal)
         //        button.backgroundColor = .secondarySystemBackground
         button.backgroundColor = .systemBackground
@@ -59,6 +109,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let editProfileBtn: UIButton = {
         let button = UIButton()
         button.setTitle("Edit Profile", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
         button.setTitleColor(.label, for: .normal)
         //        button.backgroundColor = .secondarySystemBackground
         button.backgroundColor = .systemBackground
@@ -71,6 +122,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let savedBtn: UIButton = {
         let button = UIButton()
         button.setTitle("Saved", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
         button.setTitleColor(.label, for: .normal)
         //        button.backgroundColor = .secondarySystemBackground
         button.backgroundColor = .systemBackground
@@ -83,6 +135,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let nameLbl: UILabel = {
         let label = UILabel()
         label.text = "Jervy GU"
+        label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = .label
         label.numberOfLines = 1
         
@@ -92,6 +145,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let bioLbl: UILabel = {
         let label = UILabel()
         label.text = "jervygu.wixsite.com/iosdev"
+        label.font = .systemFont(ofSize: 12, weight: .medium)
         label.textColor = .label
         label.numberOfLines = 0 // line wrap
         return label

@@ -126,6 +126,7 @@ extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             // tabs header
             let tabControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileTabsCollectionReusableView.identifier, for: indexPath) as! ProfileTabsCollectionReusableView
             
+            tabControlHeader.delegate = self
             return tabControlHeader
         }
         
@@ -143,7 +144,7 @@ extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         }
         
         // size of section tabs
-        return CGSize(width: collectionView.width, height: 65)
+        return CGSize(width: collectionView.width, height: 40)
         
     }
     
@@ -159,7 +160,7 @@ extension ProfileVC: ProfileInfoHeaderCollectionReusableViewDelegate {
     
     func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
         // open list of followers
-        let vc = ListVC()
+        let vc = ListVC(data: ["Jervy GU", "Jervy GU", "Jervy GU", "Jervy GU"])
         vc.title = "Followers"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -167,7 +168,7 @@ extension ProfileVC: ProfileInfoHeaderCollectionReusableViewDelegate {
     
     func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
         // open list of following
-        let vc = ListVC()
+        let vc = ListVC(data: ["Jervy GU", "Jervy GU", "Jervy GU", "Jervy GU"])
         vc.title = "Following"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -187,4 +188,14 @@ extension ProfileVC: ProfileInfoHeaderCollectionReusableViewDelegate {
     
 }
 
+
+extension ProfileVC: ProfileTabsCollectionReusableViewDelegate {
+    func didTapGridBtnTab() {
+        // Reload collection view with data
+    }
+    
+    func didTapTaggedBtnTab() {
+        // Reload collection view with data
+    }
+}
 
