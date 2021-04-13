@@ -29,56 +29,43 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         return imageView
     }()
     
-    func configureButtonTitleLabel(withNumber number: Int, withTitle title: String) -> UIButton {
-        
+    private let postsBtn: UIButton = {
         let button = UIButton()
-        button.setTitle("Posts", for: .normal)
         
-        // applying the line break mode
-        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        let buttonText: NSString = title as NSString
-        
+        //applying the line break mode
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        let buttonText: NSString = "24\nPosts"
+
         //getting the range to separate the button title strings
         let newlineRange: NSRange = buttonText.range(of: "\n")
-        
+
         //getting both substrings
         var substring1 = ""
         var substring2 = ""
-        
+
         if(newlineRange.location != NSNotFound) {
             substring1 = buttonText.substring(to: newlineRange.location)
             substring2 = buttonText.substring(from: newlineRange.location)
         }
-        
+
         //assigning diffrent fonts to both substrings
         let font1: UIFont = .systemFont(ofSize: 15, weight: .bold)
         let attributes1 = [NSMutableAttributedString.Key.font: font1]
         let attrString1 = NSMutableAttributedString(string: substring1, attributes: attributes1)
         
-        let font2: UIFont = .systemFont(ofSize: 12, weight: .medium)!
+        let font2: UIFont = .systemFont(ofSize: 12, weight: .regular)!
         let attributes2 = [NSMutableAttributedString.Key.font: font2]
         let attrString2 = NSMutableAttributedString(string: substring2, attributes: attributes2)
-        
+
         //appending both attributed strings
         attrString1.append(attrString2)
-        
+
         //assigning the resultant attributed strings to the button
         button.setAttributedTitle(attrString1, for: [])
         
         
-        
-        //        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
-        button.titleLabel?.textAlignment = .center
-        button.setTitleColor(.label, for: .normal)
-        //        button.backgroundColor = .secondarySystemBackground
-        button.backgroundColor = .systemBackground
-        return button
-    }
-    
-    private let postsBtn: UIButton = {
-        let button = UIButton()
-        button.setTitle("Posts", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
+//        button.setTitle("Posts", for: .normal)
+//        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(.label, for: .normal)
         //        button.backgroundColor = .secondarySystemBackground
@@ -88,8 +75,42 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let followersBtn: UIButton = {
         let button = UIButton()
-        button.setTitle("Followers", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
+        
+        //applying the line break mode
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        let buttonText: NSString = "172\nFollowers"
+
+        //getting the range to separate the button title strings
+        let newlineRange: NSRange = buttonText.range(of: "\n")
+
+        //getting both substrings
+        var substring1 = ""
+        var substring2 = ""
+
+        if(newlineRange.location != NSNotFound) {
+            substring1 = buttonText.substring(to: newlineRange.location)
+            substring2 = buttonText.substring(from: newlineRange.location)
+        }
+
+        //assigning diffrent fonts to both substrings
+        let font1: UIFont = .systemFont(ofSize: 15, weight: .bold)
+        let attributes1 = [NSMutableAttributedString.Key.font: font1]
+        let attrString1 = NSMutableAttributedString(string: substring1, attributes: attributes1)
+        
+        let font2: UIFont = .systemFont(ofSize: 12, weight: .regular)!
+        let attributes2 = [NSMutableAttributedString.Key.font: font2]
+        let attrString2 = NSMutableAttributedString(string: substring2, attributes: attributes2)
+
+        //appending both attributed strings
+        attrString1.append(attrString2)
+
+        //assigning the resultant attributed strings to the button
+        button.setAttributedTitle(attrString1, for: [])
+        
+        
+//        button.setTitle("Posts", for: .normal)
+//        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
+        button.titleLabel?.textAlignment = .center
         button.setTitleColor(.label, for: .normal)
         //        button.backgroundColor = .secondarySystemBackground
         button.backgroundColor = .systemBackground
@@ -98,8 +119,42 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let followingBtn: UIButton = {
         let button = UIButton()
-        button.setTitle("Following", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
+        
+        //applying the line break mode
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        let buttonText: NSString = "1,039\nFollowing"
+
+        //getting the range to separate the button title strings
+        let newlineRange: NSRange = buttonText.range(of: "\n")
+
+        //getting both substrings
+        var substring1 = ""
+        var substring2 = ""
+
+        if(newlineRange.location != NSNotFound) {
+            substring1 = buttonText.substring(to: newlineRange.location)
+            substring2 = buttonText.substring(from: newlineRange.location)
+        }
+
+        //assigning diffrent fonts to both substrings
+        let font1: UIFont = .systemFont(ofSize: 15, weight: .bold)
+        let attributes1 = [NSMutableAttributedString.Key.font: font1]
+        let attrString1 = NSMutableAttributedString(string: substring1, attributes: attributes1)
+        
+        let font2: UIFont = .systemFont(ofSize: 12, weight: .regular)!
+        let attributes2 = [NSMutableAttributedString.Key.font: font2]
+        let attrString2 = NSMutableAttributedString(string: substring2, attributes: attributes2)
+
+        //appending both attributed strings
+        attrString1.append(attrString2)
+
+        //assigning the resultant attributed strings to the button
+        button.setAttributedTitle(attrString1, for: [])
+        
+        
+//        button.setTitle("Posts", for: .normal)
+//        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
+        button.titleLabel?.textAlignment = .center
         button.setTitleColor(.label, for: .normal)
         //        button.backgroundColor = .secondarySystemBackground
         button.backgroundColor = .systemBackground
