@@ -9,7 +9,7 @@ import UIKit
 
 class ListVC: UIViewController {
     
-    private let data: [String]
+    private let data: [UserRelationship]
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -17,7 +17,9 @@ class ListVC: UIViewController {
         return tableView
     }()
     
-    init(data: [String]) {
+    // MARK: - Init
+    
+    init(data: [UserRelationship]) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
     }
@@ -55,7 +57,10 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTVCell.identifier, for: indexPath) as! UserFollowTVCell
         
 //        cell.textLabel?.text = data[indexPath.row]
-        cell.configure(withModel: "")
+//        cell.configure(withModel: "")
+        cell.configure(withModel: data[indexPath.row])
+        cell.delegate = self
+         
         return cell
     }
     
@@ -64,6 +69,24 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
         
         // got to profile of selected cell
         let model = data[indexPath.row]
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+}
+
+extension ListVC: UserFollowTVCellDelegate {
+    func didTapFollowUnFollowButton(model: UserRelationship) {
+        switch model.type {
+        case .following:
+            // perform firebase update to unfollow
+            break
+        case .not_following:
+            // perform firebase update to follow
+            break
+        }
     }
     
     

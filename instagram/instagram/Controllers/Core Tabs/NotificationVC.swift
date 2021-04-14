@@ -7,28 +7,62 @@
 
 import UIKit
 
-class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+enum UserNotificationType {
+    case like(post: UserPost)
+    case follow
+}
+
+struct UserNotification {
+    let type: UserNotificationType
+    let text: String
+//    let profilePic: URL
+    let user: User
+}
+
+
+final class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     private let tableView : UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.isHidden = false
+        tableView.register(NotificationLikeEventTVCell.self, forCellReuseIdentifier: NotificationLikeEventTVCell.identifier)
+        tableView.register(NotificationFollowEventTVCell.self, forCellReuseIdentifier: NotificationFollowEventTVCell.identifier)
         
         
         return tableView
     }()
-
+    
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.hidesWhenStopped = true
+        spinner.tintColor = .label
+        return spinner
+        
+    }()
+    
+    private lazy var noNotificationsView = NoNotificationsView()
+    
+    private var models = [UserNotification]()
+    
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchNotifications()
 
-//        title = "Notifications"
-        navigationController?.navigationBar.topItem?.title = "Activity"
+        navigationItem.title = "Notifications "
         view.backgroundColor = .systemBackground
+        
+        view.addSubview(spinner)
+//        spinner.startAnimating()
+        view.addSubview(tableView)
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        view.addSubview(tableView)
+
         
     }
     
@@ -36,16 +70,72 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLayoutSubviews()
         
         tableView.frame = view.bounds
+        spinner.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        spinner.center = view.center
     }
     
+    private func fetchNotifications() {
+        for x in 0...30 {
+            let post = UserPost(identifier: "",
+                                postType: .photo,
+                                thumbnailImg: URL(string: "https://www.google.com/")!,
+                                postUrl: URL(string: "https://www.google.com")!,
+                                caption: nil,
+                                likeCount: [],
+                                comment: [],
+                                createdDate: Date(),
+                                taggedUsers: [])
+            
+            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow,
+                                         text: "Hellow instagrammer",
+                                         user: User(username: "jervygu",
+                                                    bio: "Capture it",
+                                                    name: (first: "Jervy", last: "GU"),
+                                                    profilePhoto: URL(string: "https://www.google.com")!,
+                                                    birthDate: Date(),
+                                                    gender: .female,
+                                                    counts: UserCount(followers: 124,
+                                                                      following: 156,
+                                                                      posts: 1228),
+                                                    joinDate: Date()))
+            
+            models.append(model)
+        }
+    }
+    
+    private func addNoNotificationsView() {
+        tableView.isHidden = true
+        view.addSubview(tableView)
+        
+        noNotificationsView.frame = CGRect(x: 0, y: 0, width: view.width/2, height: view.width/4)
+        noNotificationsView.center = view.center
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        return cell
+        let model = models[indexPath.row]
+        
+        switch model.type {
+        case .like(_):
+            // like cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NotificationLikeEventTVCell.identifier, for: indexPath) as! NotificationLikeEventTVCell
+            cell.configure(withModel: model)
+            
+            return cell
+        case .follow:
+            // follow cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTVCell.identifier, for: indexPath) as! NotificationFollowEventTVCell
+//            cell.configure(withModel: model)
+            
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 52
     }
 
 }
