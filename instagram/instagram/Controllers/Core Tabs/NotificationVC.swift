@@ -9,7 +9,7 @@ import UIKit
 
 enum UserNotificationType {
     case like(post: UserPost)
-    case follow
+    case follow(state: FollowState)
 }
 
 struct UserNotification {
@@ -86,7 +86,7 @@ final class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDa
                                 createdDate: Date(),
                                 taggedUsers: [])
             
-            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow,
+            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow(state: .not_following),
                                          text: "Hellow instagrammer",
                                          user: User(username: "jervygu",
                                                     bio: "Capture it",
@@ -122,14 +122,17 @@ final class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDa
         case .like(_):
             // like cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationLikeEventTVCell.identifier, for: indexPath) as! NotificationLikeEventTVCell
+            
             cell.configure(withModel: model)
+            cell.delegate = self
             
             return cell
         case .follow:
             // follow cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTVCell.identifier, for: indexPath) as! NotificationFollowEventTVCell
-//            cell.configure(withModel: model)
             
+//            cell.configure(withModel: model)
+            cell.delegate = self
             return cell
         }
     }
@@ -138,4 +141,25 @@ final class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDa
         return 52
     }
 
+}
+
+extension NotificationVC: NotificationLikeEventTVCellDelegate {
+    func didTapRelatedPostButton(model: UserNotification) {
+        // Open post
+        print("Tapped post")
+        
+    }
+    
+    
+}
+
+extension NotificationVC: NotificationFollowEventTVCellDelegate {
+    func didTapFollowUnFollowButton(model: UserNotification) {
+        // Open Notif
+        print("Tapped Follow Button")
+    }
+    
+    
+    
+    
 }

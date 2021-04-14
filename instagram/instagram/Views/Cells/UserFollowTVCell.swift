@@ -12,7 +12,8 @@ protocol UserFollowTVCellDelegate: AnyObject {
 }
 
 enum FollowState {
-    case following, not_following
+    case following // indicates the current user is following the other user
+    case not_following // indicates the current user is NOT following the other user
 }
 
 struct UserRelationship {
@@ -67,6 +68,7 @@ class UserFollowTVCell: UITableViewCell {
         button.backgroundColor = .link
         button.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
         button.layer.cornerRadius = 5.0
+        button.layer.masksToBounds = true
         
         return button
     }()
@@ -110,14 +112,14 @@ class UserFollowTVCell: UITableViewCell {
             followBtn.setTitle("Unfollow", for: .normal)
             followBtn.setTitleColor(.label, for: .normal)
             followBtn.backgroundColor = .systemBackground
-            followBtn.layer.borderWidth = 1
+            followBtn.layer.borderWidth = 0.5
             followBtn.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         case .not_following:
             // show follow button
             followBtn.setTitle("Follow", for: .normal)
             followBtn.setTitleColor(.white , for: .normal)
             followBtn.backgroundColor = .link
-//            followBtn.layer.borderWidth = 0.3
+            followBtn.layer.borderWidth = 0
 //            followBtn.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         }
     }

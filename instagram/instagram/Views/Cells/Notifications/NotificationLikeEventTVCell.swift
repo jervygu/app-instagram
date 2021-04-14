@@ -35,7 +35,7 @@ class NotificationLikeEventTVCell: UITableViewCell {
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 2
         
-        label.text = "Wanda Maximoff Scarlet Witch liked your post."
+        label.text = "Wanda gu gu Scarlet Scarlet Scarlet Witch liked your post."
         
         return label
     }()
@@ -54,7 +54,17 @@ class NotificationLikeEventTVCell: UITableViewCell {
         contentView.addSubview(profileImgView)
         contentView.addSubview(label)
         contentView.addSubview(postBtn)
+        postBtn.addTarget(self, action: #selector(didTapPostBtn), for: .touchUpInside)
         
+        selectionStyle = .none
+        
+    }
+    
+    @objc private func didTapPostBtn() {
+        guard let model = model else {
+            return
+        }
+        delegate?.didTapRelatedPostButton(model: model)
     }
     
     required init?(coder: NSCoder) {
@@ -63,8 +73,6 @@ class NotificationLikeEventTVCell: UITableViewCell {
     
     public func configure(withModel model: UserNotification) {
         self.model = model
-        
-        
         
         switch model.type {
         case .like(let post):
